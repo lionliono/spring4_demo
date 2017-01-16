@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jj.dao.ManagerDao">
+	<resultMap id="BaseResultMap" type="com.jj.domain.Manager">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="managerName" property="managerName" jdbcType="VARCHAR" />
+		<result column="password" property="password" jdbcType="VARCHAR" />
+	</resultMap>
+	<select id="getUserByManagerName" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select * from manager where managerName = #{managerName}
+	</select>
+
+	<select id="query">
+		select * from manager limit 0,1
+	</select>
+</mapper>
